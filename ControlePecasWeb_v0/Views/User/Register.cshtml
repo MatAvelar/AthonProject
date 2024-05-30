@@ -1,0 +1,98 @@
+﻿@model ControlePecasWeb_v0.Models.User
+
+@{
+    ViewData["Title"] = "Cadastro de Usuário";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Controle de Peças e Equipamentos</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+        :root {
+            --verde-claro: #b8d8ba;
+            --azul-claro: #a2d5f2;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--verde-claro);
+        }
+
+        .navbar {
+            background-color: var(--azul-claro) !important;
+            border-bottom: 2px solid var(--verde-claro);
+        }
+
+        .navbar-brand, .nav-link {
+            color: #ffffff !important;
+        }
+
+            .nav-link:hover {
+                background-color: #ffffff;
+                color: var(--azul-claro) !important;
+                border-radius: 5px;
+            }
+
+        .footer {
+            background-color: #f0f0f0;
+            padding: 10px 0;
+            border-top: 2px solid var(--azul-claro);
+        }
+
+            .footer a {
+                color: var(--azul-claro);
+            }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,.1);
+            margin-top: 20px;
+            border: 1px solid var(--azul-claro);
+        }
+
+        button[type="submit"], .btn-primary {
+            background-color: var(--azul-claro);
+            border-color: var(--verde-claro);
+        }
+
+            button[type="submit"]:hover, .btn-primary:hover {
+                background-color: var(--verde-claro);
+                border-color: var(--azul-claro);
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>@ViewData["Title"]</h2>
+        <form asp-action="Register" method="post">
+            <div class="form-group">
+                <label asp-for="Login" class="control-label"></label>
+                <input asp-for="Login" class="form-control" />
+                <span asp-validation-for="Login" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <input asp-for="IsAdmin" class="form-check-input" />
+                <label asp-for="IsAdmin" class="form-check-label"></label>
+                <span asp-validation-for="IsAdmin" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <partial name="_ValidationScriptsPartial" />
+</body>
+</html>

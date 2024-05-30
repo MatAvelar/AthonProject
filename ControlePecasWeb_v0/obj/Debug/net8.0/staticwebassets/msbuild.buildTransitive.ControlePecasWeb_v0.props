@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\ControlePecasWeb_v0.props" />
+</Project>

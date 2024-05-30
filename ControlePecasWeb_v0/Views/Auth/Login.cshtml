@@ -1,0 +1,98 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+
+<style>
+    :root {
+        --verde-claro: #b8d8ba;
+        --azul-claro: #a2d5f2;
+        --azul-escuro: #0000bf; /* Azul escuro */
+        --verde-lima: #96E637; /* Verde-lima mais clara */
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--verde-claro);
+    }
+
+    .navbar {
+        background-color: var(--azul-claro) !important;
+        border-bottom: 2px solid var(--verde-claro);
+    }
+
+    .navbar-brand, .nav-link {
+        color: var(--azul-escuro) !important; /* Definindo a cor do texto da navbar em azul escuro */
+        background-color: transparent; /* Removendo o fundo */
+        padding: 0; /* Removendo o padding extra */
+        border-radius: 0; /* Removendo borda arredondada */
+    }
+
+        .navbar-brand:hover, .nav-link:hover {
+            color: var(--azul-escuro) !important; /* Mantendo a cor do texto ao passar o mouse */
+        }
+
+    .footer {
+        background-color: #f0f0f0;
+        padding: 10px 0;
+        border-top: 2px solid var(--azul-claro);
+    }
+
+    .footer a {
+        color: var(--azul-claro);
+    }
+
+    .container {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,.1);
+        margin-top: 20px;
+        border: 1px solid var(--azul-claro);
+    }
+
+    /* Estilo para o botão de login */
+    button[type="submit"], .btn-primary {
+        background-color: var(--verde-lima) !important; /* Cor de fundo verde-lima */
+        border-color: var(--verde-lima) !important; /* Cor da borda verde-lima */
+        color: var(--azul-escuro) !important; /* Cor do texto azul-escuro */
+    }
+
+    button[type="submit"]:hover, .btn-primary:hover {
+        background-color: var(--verde-claro) !important; /* Cor de fundo ao passar o mouse */
+        border-color: var(--azul-claro) !important; /* Cor da borda ao passar o mouse */
+        color: var(--azul-escuro) !important; /* Cor do texto ao passar o mouse */
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center">Login</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="/Auth/Login">
+                        <div class="form-group mb-3">
+                            <label for="login">Usuário:</label>
+                            <input type="text" class="form-control" id="login" name="login" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="password">Senha:</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Entrar</button>
+                        </div>
+                    </form>
+                    @if (ViewBag.LoginErrorMessage != null)
+                    {
+                        <div class="alert alert-danger mt-3" role="alert">
+                            @ViewBag.LoginErrorMessage
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
